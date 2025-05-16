@@ -8,3 +8,15 @@ body {
   margin: auto;
   padding: 1em;
 }
+
+#selected-time,
+#any-time {
+  display: block;
+}
+#any-time {
+  color: #666;
+  font-style: italic;
+}
+#selected-time {
+  font-weight: bold;
+}

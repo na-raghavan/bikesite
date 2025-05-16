@@ -14,10 +14,27 @@
     <title>Bikewatching</title>
   </head>
   <body>
+  <header style="display:flex; gap:1em; align-items:baseline; margin-bottom:1em;">
     <h1>🚴🏼‍♀️ Bikewatching</h1>
-    <div id="map">
-        <svg></svg>
-    </div>
+    <label style="margin-left:auto; display:flex; flex-direction:column; align-items:flex-end;">
+      Filter by time:
+      <input
+        id="time-slider"
+        type="range"
+        min="-1"
+        max="1440"
+        value="-1"
+        step="1"
+      />
+      <time id="selected-time" style="display:block;"></time>
+      <em id="any-time" style="display:block; color:#666; font-style:italic;">
+        (any time)
+      </em>
+    </label>
+  </header>
 
-  </body>
+  <div id="map">
+    <svg></svg>
+  </div>
+</body>
 </html>
