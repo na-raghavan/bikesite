@@ -26,3 +26,40 @@ body {
   pointer-events: none; 
   z-index: 1;
 }
+
+/* Define your two endpoint colors once */
+:root {
+  --color-departures: steelblue;
+  --color-arrivals:   darkorange;
+}
+
+/* Circles pick up the mixed color based on --departure-ratio */
+#map svg circle {
+  /* mix in oklch to smoothly interpolate hues */
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  fill: var(--color);
+}
+
+/* Legend styling (Design 1: equal‐width colored blocks) */
+.legend {
+  display: flex;
+  gap: 1px;
+  margin-block: 1em;
+}
+.legend > div {
+  flex: 1;
+  padding: 0.5em 0;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  /* each legend swatch uses the same mixing logic */
+  background: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
